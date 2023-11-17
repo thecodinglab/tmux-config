@@ -7,7 +7,7 @@ if [ -z "$TMUX" ]; then
   exit 1
 fi
 
-FORMAT='#{session_id}:#{window_id}:#{pane_id} #{session_name} #{pane_current_path} #{pane_current_command}'
+FORMAT='#{session_id}:#{window_id}:#{pane_id} #{session_name} #{window_name} #{pane_current_path} #{pane_current_command}'
 PANES=$(tmux list-panes -a -F "$FORMAT")
 
 SELECTION=$(echo "${PANES}" | fzf-tmux -p | awk '{print $1}')
